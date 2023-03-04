@@ -3,6 +3,6 @@ module.exports = Client => {
 
     if (Client?.application?.commands) {
         Client.application.commands.set(Client.slashArray);
-        console.log(`(/)${Client.slashCommands.size} Comandos publicados`.green);
+        console.log(`(/) ${Client.slashCommands.size} Comandos publicados`.green);
       }
 }
