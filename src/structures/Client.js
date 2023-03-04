@@ -62,10 +62,11 @@ module.exports = class extends Client {
   }
 
   async loadCommands() {
+    console.log(`-----------------------------------------`.yellow);
     console.log(`(${process.env.PREFIX})Cargando comandos`.yellow);
     await this.commands.clear();
 
-    const RUTA_ARCHIVOS = await this.utils.loadFiles("/src/Commands");
+    const RUTA_ARCHIVOS = this.utils.loadFiles("/src/Commands");
 
     if (RUTA_ARCHIVOS.length) {
       RUTA_ARCHIVOS.forEach((rutaArchivo) => {
@@ -92,11 +93,12 @@ module.exports = class extends Client {
   }
 
   async loadSlashCommands() {
-    console.log(`(/)Cargando comandos slash`, yellow);
+    console.log(`-----------------------------------------`.yellow);
+    console.log(`(/)Cargando comandos slash` .yellow);
     await this.slashCommands.clear();
     this.slashArray = [];
 
-    const RUTA_ARCHIVOS = await this.utils.loadFiles("/src/slashCommands");
+    const RUTA_ARCHIVOS = this.utils.loadFiles("/src/slashCommands");
 
     if (RUTA_ARCHIVOS.length) {
       RUTA_ARCHIVOS.forEach((rutaArchivo) => {
@@ -127,9 +129,10 @@ module.exports = class extends Client {
   }
 
   async loadHandlers() {
+    console.log(`-----------------------------------------`.yellow);
     console.log(`(-)Cargando Handlers`.yellow);
 
-    const RUTA_ARCHIVOS = await this.utils.loadFiles("/src/handlers");
+    const RUTA_ARCHIVOS = this.utils.loadFiles("/src/handlers");
 
     if (RUTA_ARCHIVOS.length) {
       RUTA_ARCHIVOS.forEach((rutaArchivo) => {
@@ -146,10 +149,11 @@ module.exports = class extends Client {
   }
 
   async loadEvents() {
+    console.log(`-----------------------------------------`.yellow);
     console.log(`(+)Cargando eventos`.yellow);
     this.removeAllListeners();
 
-    const RUTA_ARCHIVOS = await this.utils.loadFiles("/src/events");
+    const RUTA_ARCHIVOS = this.utils.loadFiles("/src/events");
 
     if (RUTA_ARCHIVOS.length) {
       RUTA_ARCHIVOS.forEach((rutaArchivo) => {
